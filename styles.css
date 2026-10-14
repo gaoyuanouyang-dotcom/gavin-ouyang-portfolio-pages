@@ -116,22 +116,43 @@ img { display: block; max-width: 100%; }
 .visual-matrix b { position: absolute; inset: 32% 18%; display: grid; place-items: center; border-radius: 4px; background: var(--blue-dark); color: white; text-align: center; font-size: 9px; letter-spacing: .08em; }
 
 .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.education-card { min-height: 390px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-soft); overflow: hidden; }
-.education-top { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(190px, .88fr); align-items: start; gap: 22px; }
+.education-card { min-height: 450px; padding: 30px; position: relative; border: 1px solid var(--line); border-radius: 10px; background: #e9eff2; overflow: hidden; isolation: isolate; }
+.education-card::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(248,250,252,.96) 0%, rgba(248,250,252,.57) 24%, rgba(248,250,252,.10) 47%, rgba(248,250,252,0) 66%), linear-gradient(0deg, rgba(248,250,252,1) 0%, rgba(248,250,252,.98) 31%, rgba(248,250,252,.54) 48%, rgba(248,250,252,0) 70%); }
+.education-content { min-height: 388px; position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; }
 .education-logo { height: 112px; display: flex; align-items: center; justify-content: flex-start; }
-.education-logo img { max-width: 260px; max-height: 100px; object-fit: contain; object-position: left center; }
+.education-logo img { max-width: 230px; max-height: 92px; object-fit: contain; object-position: left center; filter: drop-shadow(0 2px 5px rgba(31,35,40,.08)); }
 .education-card:nth-child(2) .education-logo img { max-width: 96px; }
-.education-map { min-width: 0; align-self: start; position: relative; padding: 8px 10px 9px; border: 1px solid #cfdeeb; border-radius: 9px; background: rgba(255,255,255,.76); box-shadow: 0 6px 18px rgba(0,65,130,.07); }
-.education-map svg { width: 100%; height: auto; display: block; overflow: visible; }
-.map-ground { stroke: #bfd2e2; stroke-width: 1; }
-.map-water { fill: #b9daf2; opacity: .78; }
-.map-river { fill: none; stroke: #92c6e9; stroke-width: 9; stroke-linecap: round; opacity: .64; }
-.map-blocks { fill: #fff; stroke: #a9c2d7; stroke-width: 1; }
-.map-road { fill: none; stroke: #72a6cf; stroke-width: 1.4; stroke-linecap: round; stroke-dasharray: 3 3; opacity: .92; }
-.map-pin path { fill: var(--blue); }.map-pin circle { fill: #fff; }
-.education-map-caption { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-top: 2px; padding-top: 7px; border-top: 1px solid #dce8f2; color: var(--blue-dark); }
+.education-map { position: absolute; inset: 0; z-index: 0; background: #e4ebee; }
+.education-map svg { width: 100%; height: auto; display: block; filter: saturate(1.08) contrast(1.08); }
+.education-map-caption { position: absolute; top: 20px; right: 22px; display: flex; flex-direction: column; align-items: flex-end; gap: 1px; padding: 7px 10px; border: 1px solid rgba(255,255,255,.9); border-radius: 6px; background: rgba(255,255,255,.82); color: var(--blue-dark); box-shadow: 0 3px 12px rgba(0,65,130,.09); backdrop-filter: blur(5px); }
 .education-map-caption span { font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
-.education-map-caption small { color: var(--muted); font-size: 8px; text-align: right; }
+.education-map-caption small { color: var(--muted); font-size: 8px; }
+.map-base { fill: #e4eaec; }
+.map-terrain { fill: #e5eddc; }
+.map-water { fill: #b9dced; }.map-coast { fill: none; stroke: #7eb9d7; stroke-width: 2; }
+.map-park { fill: #d6e7d2; stroke: #bed7b8; stroke-width: 1; }
+.map-field { fill: #e3ecd6; stroke: #ccdcb9; stroke-width: 1; }
+.map-buildings { fill: #cdd4d8; stroke: #aeb9c0; stroke-width: 1; }
+.map-buildings-residential { fill: #d7d2ca; stroke: #b7b1a8; }
+.map-minor-roads { fill: none; stroke: rgba(255,255,255,.96); stroke-width: 7; }
+.map-minor-roads path { vector-effect: non-scaling-stroke; }
+.map-major-road { fill: none; stroke: white; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 1px #aebbc4); }
+.map-rail { fill: none; stroke: #8c6fb5; stroke-width: 5; stroke-dasharray: 9 5; opacity: .9; }
+.map-campus { fill: rgba(10,102,194,.19); stroke: #0a66c2; stroke-width: 3; }
+.map-campus-building { fill: #89b9df; stroke: #4d92ca; stroke-width: 1; }
+.map-lake { fill: #8fc8e4; stroke: #6aafd1; stroke-width: 1; }
+.map-landmark-shape { fill: #e8eef3; stroke: #8ca4b6; stroke-width: 2; }
+.education-map text { font-family: var(--sans); paint-order: stroke; stroke: rgba(255,255,255,.94); stroke-width: 3px; stroke-linejoin: round; }
+.district-label { fill: #435967; font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+.road-label { fill: #5f717e; font-size: 10px; font-weight: 600; }
+.water-label { fill: #347ca4; font-size: 17px; font-weight: 650; letter-spacing: .08em; }
+.poi-label, .station-label { fill: #3f5260; font-size: 11px; font-weight: 650; }
+.line-label { fill: #715495; font-size: 11px; font-weight: 700; }
+.map-transit circle { fill: #715495; stroke: white; stroke-width: 3; }.map-transit text { fill: white; stroke: none; font-size: 10px; font-weight: 800; text-anchor: middle; }
+.map-pin { filter: drop-shadow(0 4px 5px rgba(0,65,130,.25)); }.map-pin path { fill: var(--blue); }.map-pin circle { fill: white; }
+.map-label-plate { fill: rgba(255,255,255,.9); stroke: rgba(10,102,194,.25); }.campus-label { fill: var(--blue-dark); stroke: none !important; font-size: 11px; font-weight: 750; text-anchor: middle; }
+.map-scale path { fill: none; stroke: #536674; stroke-width: 1.5; }.map-scale text { fill: #536674; font-size: 9px; text-anchor: middle; }
+.map-compass circle { fill: rgba(255,255,255,.84); stroke: #a9bac6; }.map-compass path { fill: var(--blue); }.map-compass text { fill: #536674; stroke: none; font-size: 8px; font-weight: 800; text-anchor: middle; }
 .education-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; font-weight: 650; text-transform: uppercase; letter-spacing: .07em; }
 .education-meta span:first-child { color: var(--blue); }
 .education-card h3 { margin: 16px 0 7px; font-size: clamp(24px, 2.5vw, 32px); line-height: 1.18; font-weight: 650; }
@@ -172,11 +193,11 @@ footer { max-width: var(--max); margin: 0 auto 24px; padding: 18px 24px; display
   .capability-grid, .case-grid, .education-grid { grid-template-columns: 1fr; }.capability-card { min-height: 225px; padding: 24px; }.capability-card h3 { margin-top: 38px; }
   .timeline-entry { grid-template-columns: 1fr; gap: 20px; padding: 32px 0; }.timeline-identity { display: flex; align-items: center; gap: 14px; }.company-logo { width: 62px; height: 62px; flex: 0 0 auto; }.timeline-date { margin-top: 0; }.timeline-main ul { grid-template-columns: 1fr; }
   .case-card { min-height: 540px; }.case-visual { min-height: 245px; }.case-body { min-height: 280px; padding: 22px; }.visual-flow { gap: 6px; }.visual-flow span { width: 60px; height: 60px; }
-  .education-card { min-height: 390px; padding: 24px; }.education-top { grid-template-columns: minmax(120px, 1fr) minmax(160px, .9fr); gap: 14px; }.education-logo { height: 100px; }.education-logo img { max-width: 220px; max-height: 88px; }.education-map { padding: 6px 7px 7px; }
+  .education-card { min-height: 500px; padding: 24px; }.education-content { min-height: 450px; }.education-logo { height: 100px; }.education-logo img { max-width: 210px; max-height: 82px; }.education-map-caption { top: 14px; right: 14px; }
   .contact-row { grid-template-columns: 1fr auto; gap: 10px; }.contact-row i { display: none; }.contact-row em { max-width: 190px; overflow-wrap: anywhere; text-align: right; }
   footer { margin: 0 12px 12px; padding: 16px 10px; flex-direction: column; gap: 6px; }.case-dialog { width: calc(100vw - 20px); max-height: calc(100vh - 20px); }.dialog-shell { padding: 58px 22px 28px; }.dialog-grid { grid-template-columns: 1fr; }.dialog-grid section:last-child { grid-column: 1; }
 }
 @media (max-width: 430px) {
-  .education-top { grid-template-columns: 1fr; }.education-logo { height: 82px; }.education-map { max-width: 250px; margin-left: auto; }.education-card { min-height: 470px; }
+  .education-card { min-height: 510px; }.education-content { min-height: 460px; }.education-logo { height: 82px; }.education-map-caption { max-width: 140px; }.education-map-caption small { max-width: 118px; text-align: right; }.education-card::after { background: linear-gradient(90deg, rgba(248,250,252,.85) 0%, rgba(248,250,252,.25) 70%, rgba(248,250,252,.06) 100%), linear-gradient(0deg, rgba(248,250,252,1) 0%, rgba(248,250,252,.98) 40%, rgba(248,250,252,.45) 62%, rgba(248,250,252,0) 82%); }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }.reveal { opacity: 1; transform: none; } }
