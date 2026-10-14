@@ -114,6 +114,22 @@
       <div class="dialog-shell"><button type="button" class="dialog-close" data-dialog-close aria-label="Close">×</button><div data-dialog-content></div></div>
     </dialog>
     <noscript><div class="noscript">This portfolio requires JavaScript for multilingual content and interactive case studies.</div></noscript>
+    <script>
+      (() => {
+        const analyticsTokens = {
+          "gaoyuanouyang-dotcom.github.io": "e6ccef495e624276864d02d666c9cb7f",
+          "gavin-ouyang-portfolio.vercel.app": "4fc5a2817904485485e2ecaf58f1c237",
+        };
+        const token = analyticsTokens[window.location.hostname];
+        if (!token) return;
+
+        const beacon = document.createElement("script");
+        beacon.type = "module";
+        beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
+        beacon.dataset.cfBeacon = JSON.stringify({ token });
+        document.body.append(beacon);
+      })();
+    </script>
     <script type="module" src="./app.js"></script>
   </body>
 </html>
