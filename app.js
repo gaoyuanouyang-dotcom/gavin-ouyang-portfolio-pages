@@ -101,7 +101,8 @@ function educationMap(item) {
     </g>
     <path class="map-major-road" d="M372-15c-9 79-10 154 6 226 8 37 8 66 1 92"/>
     <path class="map-major-road" d="M-20 278c145-20 271-14 391 20 84 24 164 21 270-1"/>
-    <path class="map-rail" d="M445-10c-12 76-20 147-8 216 7 39 6 61-7 91"/>
+    <path class="map-rail map-rail-east" d="M445-10c-12 76-20 147-8 216 7 39 6 61-7 91"/>
+    <path class="map-rail map-rail-tuen-ma" d="M358 229c35-12 65-15 78-11 29 8 62 8 112-5"/>
     <path class="map-campus" d="M246 82 358 72l47 64-29 70-132-6-28-67z"/>
     <path class="map-campus-building" d="M258 99h41v28h-41zM309 91h39v31h-39zM356 112h28v43h-28zM274 142h45v38h-45zM328 137h35v45h-35z"/>
     <ellipse class="map-landmark-shape" cx="440" cy="254" rx="36" ry="24"/>
@@ -112,7 +113,10 @@ function educationMap(item) {
       <text class="water-label" x="355" y="365">${escapeHtml(labels.harbour)}</text>
       <text class="poi-label" x="421" y="292">${escapeHtml(labels.landmark)}</text>
     </g>
-    <g class="map-transit" transform="translate(435 218)"><circle r="12"/><text x="0" y="4">M</text></g>
+    <g class="map-transit map-transit-mtr" transform="translate(435 218)">
+      <circle r="15"/>
+      <path d="M-8-7c4 0 6 3 8 7 2-4 4-7 8-7M-8 7c4 0 6-3 8-7 2 4 4 7 8 7M0-1v2"/>
+    </g>
     <text class="station-label" x="452" y="222">${escapeHtml(labels.station)}</text>
     <g class="map-pin" transform="translate(315 126)"><path d="M0-24c-11 0-19 8-19 19 0 15 19 32 19 32S19 10 19-5c0-11-8-19-19-19Z"/><circle cy="-5" r="6"/></g>
     <rect class="map-label-plate" x="277" y="153" width="118" height="25" rx="12"/><text class="campus-label" x="336" y="170">${escapeHtml(labels.campus)}</text>`;
@@ -133,7 +137,7 @@ function educationMap(item) {
     <path class="map-major-road" d="M178-10c8 91 4 172 8 254 3 70 1 123-7 186"/>
     <path class="map-major-road" d="M-20 321c160-7 302-7 660 3"/>
     <path class="map-major-road" d="M459-10c-10 107-10 211 0 440"/>
-    <path class="map-rail" d="M183-10c4 101 5 203 2 440"/>
+    <path class="map-rail map-rail-line-one" d="M183-10c4 101 5 203 2 440"/>
     <path class="map-campus" d="M316 93h174v205l-42 15-132-28z"/>
     <path class="map-campus-building" d="M337 118h45v34h-45zM394 112h54v42h-54zM336 169h54v37h-54zM402 171h63v37h-63zM339 224h42v38h-42zM396 222h66v50h-66z"/>
     <path class="map-lake" d="M370 207c22-14 50-7 61 8 10 14-5 29-29 29-26 0-52-23-32-37Z"/>
@@ -146,7 +150,12 @@ function educationMap(item) {
       <text class="road-label" x="194" y="87" transform="rotate(88 194 87)">Furong South Rd</text>
       <text class="district-label" x="516" y="372">${escapeHtml(labels.district)}</text>
     </g>
-    <g class="map-transit" transform="translate(184 275)"><circle r="12"/><text x="0" y="4">M</text></g>
+    <g class="map-transit map-transit-changsha" transform="translate(184 275)">
+      <circle r="15"/>
+      <path class="changsha-mark-red" d="M-9 1a9 9 0 0 1 18 0H5a5 5 0 0 0-10 0Z"/>
+      <path class="changsha-mark-blue" d="M-10 3h20L6 9H-6Z"/>
+      <path class="changsha-mark-cut" d="M-4 3h8L2 6h-4Z"/>
+    </g>
     <text class="station-label" x="202" y="279">${escapeHtml(labels.station)}</text>
     <text class="line-label" x="139" y="208">${escapeHtml(labels.harbour)}</text>
     <g class="map-pin" transform="translate(414 180)"><path d="M0-24c-11 0-19 8-19 19 0 15 19 32 19 32S19 10 19-5c0-11-8-19-19-19Z"/><circle cy="-5" r="6"/></g>
@@ -163,7 +172,7 @@ function educationMap(item) {
         <rect class="map-base" width="620" height="420"/>
         ${isHongKong ? hongKongMap : changshaMap}
         <g class="map-scale" transform="translate(514 391)"><path d="M0 0h65M0-4v8M65-4v8"/><text x="32" y="-7">${escapeHtml(labels.scale)}</text></g>
-        <g class="map-compass" transform="translate(580 34)"><circle r="17"/><path d="M0-12 5 5 0 2-5 5Z"/><text x="0" y="14">N</text></g>
+        <g class="map-compass" transform="translate(580 224)"><circle r="17"/><path d="M0-12 5 5 0 2-5 5Z"/><text x="0" y="14">N</text></g>
       </svg>
       <div class="education-map-caption"><span>${escapeHtml(item.mapCity)}</span><small>${escapeHtml(item.mapArea)}</small></div>
     </div>`;
@@ -173,7 +182,7 @@ function renderEducation() {
   document.querySelector("[data-education]").innerHTML = content[locale].education.items.map((item, index) => `
     <article class="education-card reveal" data-delay="${index}">
       ${educationMap(item)}
-      <div class="education-content"><div class="education-logo"><img src="${item.logo}" alt="${escapeHtml(item.logoAlt)}" loading="lazy" decoding="async" /></div>
+      <div class="education-content"><div class="education-logo education-logo-${item.mapKey}"><img src="${item.logo}" alt="${escapeHtml(item.logoAlt)}" loading="lazy" decoding="async" /></div>
       <div class="education-copy"><div class="education-meta"><span>0${index + 1}</span><span>${escapeHtml(item.place)}</span></div><h3>${escapeHtml(item.school)}</h3><p class="degree">${escapeHtml(item.degree)}</p><p class="education-date">${escapeHtml(item.date)}</p></div></div>
     </article>`).join("");
 }

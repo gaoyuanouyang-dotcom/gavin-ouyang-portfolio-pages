@@ -119,9 +119,10 @@ img { display: block; max-width: 100%; }
 .education-card { min-height: 450px; padding: 30px; position: relative; border: 1px solid var(--line); border-radius: 10px; background: #e9eff2; overflow: hidden; isolation: isolate; }
 .education-card::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(248,250,252,.96) 0%, rgba(248,250,252,.57) 24%, rgba(248,250,252,.10) 47%, rgba(248,250,252,0) 66%), linear-gradient(0deg, rgba(248,250,252,1) 0%, rgba(248,250,252,.98) 31%, rgba(248,250,252,.54) 48%, rgba(248,250,252,0) 70%); }
 .education-content { min-height: 388px; position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; }
-.education-logo { height: 112px; display: flex; align-items: center; justify-content: flex-start; }
-.education-logo img { max-width: 230px; max-height: 92px; object-fit: contain; object-position: left center; filter: drop-shadow(0 2px 5px rgba(31,35,40,.08)); }
-.education-card:nth-child(2) .education-logo img { max-width: 96px; }
+.education-logo { width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(255,255,255,.9); border-radius: 10px; background: rgba(255,255,255,.88); box-shadow: 0 4px 14px rgba(31,35,40,.08); }
+.education-logo img { width: 78px; height: 78px; object-fit: contain; filter: drop-shadow(0 2px 5px rgba(31,35,40,.08)); }
+.education-logo-hong-kong { position: relative; }
+.education-logo.education-logo-hong-kong img { position: absolute; top: -16px; left: 50%; width: 300px; max-width: none; max-height: none; height: auto; clip-path: inset(0 0 50% 0); transform: translateX(-50%); }
 .education-map { position: absolute; inset: 0; z-index: 0; background: #e4ebee; }
 .education-map svg { width: 100%; height: auto; display: block; filter: saturate(1.08) contrast(1.08); }
 .education-map-caption { position: absolute; top: 20px; right: 22px; display: flex; flex-direction: column; align-items: flex-end; gap: 1px; padding: 7px 10px; border: 1px solid rgba(255,255,255,.9); border-radius: 6px; background: rgba(255,255,255,.82); color: var(--blue-dark); box-shadow: 0 3px 12px rgba(0,65,130,.09); backdrop-filter: blur(5px); }
@@ -137,9 +138,15 @@ img { display: block; max-width: 100%; }
 .map-minor-roads { fill: none; stroke: rgba(255,255,255,.96); stroke-width: 7; }
 .map-minor-roads path { vector-effect: non-scaling-stroke; }
 .map-major-road { fill: none; stroke: white; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 1px #aebbc4); }
-.map-rail { fill: none; stroke: #8c6fb5; stroke-width: 5; stroke-dasharray: 9 5; opacity: .9; }
-.map-campus { fill: rgba(10,102,194,.19); stroke: #0a66c2; stroke-width: 3; }
-.map-campus-building { fill: #89b9df; stroke: #4d92ca; stroke-width: 1; }
+.map-rail { fill: none; stroke-width: 5; stroke-dasharray: 9 5; opacity: .95; }
+.map-rail-east { stroke: #5eb6e4; }
+.map-rail-tuen-ma { stroke: #9a3820; }
+.map-rail-line-one { stroke: #e60012; }
+.map-campus { stroke-width: 3; }
+.education-map-hong-kong .map-campus { fill: rgba(160,35,55,.20); stroke: #a02337; }
+.education-map-hong-kong .map-campus-building { fill: #c87887; stroke: #a02337; stroke-width: 1; }
+.education-map-changsha .map-campus { fill: rgba(0,119,190,.20); stroke: #0077be; }
+.education-map-changsha .map-campus-building { fill: #72b9df; stroke: #0077be; stroke-width: 1; }
 .map-lake { fill: #8fc8e4; stroke: #6aafd1; stroke-width: 1; }
 .map-landmark-shape { fill: #e8eef3; stroke: #8ca4b6; stroke-width: 2; }
 .education-map text { font-family: var(--sans); paint-order: stroke; stroke: rgba(255,255,255,.94); stroke-width: 3px; stroke-linejoin: round; }
@@ -147,9 +154,17 @@ img { display: block; max-width: 100%; }
 .road-label { fill: #5f717e; font-size: 10px; font-weight: 600; }
 .water-label { fill: #347ca4; font-size: 17px; font-weight: 650; letter-spacing: .08em; }
 .poi-label, .station-label { fill: #3f5260; font-size: 11px; font-weight: 650; }
-.line-label { fill: #715495; font-size: 11px; font-weight: 700; }
-.map-transit circle { fill: #715495; stroke: white; stroke-width: 3; }.map-transit text { fill: white; stroke: none; font-size: 10px; font-weight: 800; text-anchor: middle; }
-.map-pin { filter: drop-shadow(0 4px 5px rgba(0,65,130,.25)); }.map-pin path { fill: var(--blue); }.map-pin circle { fill: white; }
+.line-label { fill: #c91425; font-size: 11px; font-weight: 700; }
+.map-transit circle { fill: white; stroke-width: 2; }
+.map-transit-mtr circle { fill: #e2231a; stroke: white; }
+.map-transit-mtr path { fill: none; stroke: white; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.map-transit-changsha circle { stroke: #cfd8df; }
+.changsha-mark-red { fill: #e60012; stroke: none; }
+.changsha-mark-blue { fill: #0077be; stroke: none; }
+.changsha-mark-cut { fill: white; stroke: none; }
+.map-pin { filter: drop-shadow(0 4px 5px rgba(0,65,130,.25)); }.map-pin circle { fill: white; }
+.education-map-hong-kong .map-pin path { fill: #a02337; }
+.education-map-changsha .map-pin path { fill: #0077be; }
 .map-label-plate { fill: rgba(255,255,255,.9); stroke: rgba(10,102,194,.25); }.campus-label { fill: var(--blue-dark); stroke: none !important; font-size: 11px; font-weight: 750; text-anchor: middle; }
 .map-scale path { fill: none; stroke: #536674; stroke-width: 1.5; }.map-scale text { fill: #536674; font-size: 9px; text-anchor: middle; }
 .map-compass circle { fill: rgba(255,255,255,.84); stroke: #a9bac6; }.map-compass path { fill: var(--blue); }.map-compass text { fill: #536674; stroke: none; font-size: 8px; font-weight: 800; text-anchor: middle; }
