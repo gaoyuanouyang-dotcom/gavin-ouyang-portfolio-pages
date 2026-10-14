@@ -72,10 +72,40 @@ function renderCases() {
   document.querySelectorAll("[data-case]").forEach((button) => button.addEventListener("click", () => openCase(button.dataset.case)));
 }
 
+function educationMap(item) {
+  const isHongKong = item.mapKey === "hong-kong";
+  const blocks = isHongKong
+    ? `<path d="M34 47 63 31l23 13-29 17zM71 69l28-16 24 14-29 17zM111 42l25-14 22 12-25 15zM130 76l31-18 25 14-31 18z" />`
+    : `<path d="M30 39 60 22l26 15-30 17zM67 67l29-17 27 15-30 18zM113 34l28-16 26 15-29 17zM132 70l30-17 27 15-30 18z" />`;
+  const marker = isHongKong ? { x: 151, y: 43 } : { x: 150, y: 67 };
+  return `
+    <div class="education-map" role="img" aria-label="${escapeHtml(item.mapLabel)}">
+      <svg viewBox="0 0 220 124" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="map-surface-${item.mapKey}" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f8fbfe"/><stop offset="1" stop-color="#e4f0fa"/>
+          </linearGradient>
+          <filter id="map-shadow-${item.mapKey}" x="-30%" y="-30%" width="160%" height="180%">
+            <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#004182" flood-opacity=".16"/>
+          </filter>
+        </defs>
+        <path class="map-ground" d="M15 60 104 9l101 57-91 52z" fill="url(#map-surface-${item.mapKey})"/>
+        ${isHongKong ? `<path class="map-water" d="M15 60 114 118l91-52-15-8-76 43-83-49z"/>` : `<path class="map-river" d="M22 72c48-17 71 15 108-4 28-15 46-11 67-4"/>`}
+        <g class="map-blocks">${blocks}</g>
+        <path class="map-road" d="M39 78 127 28M78 97l92-53M54 41l102 57"/>
+        <g class="map-pin" transform="translate(${marker.x} ${marker.y})" filter="url(#map-shadow-${item.mapKey})">
+          <path d="M0-17c-8 0-14 6-14 14 0 11 14 24 14 24S14 8 14-3C14-11 8-17 0-17Z"/>
+          <circle cx="0" cy="-3" r="4"/>
+        </g>
+      </svg>
+      <div class="education-map-caption"><span>${escapeHtml(item.mapCity)}</span><small>${escapeHtml(item.mapArea)}</small></div>
+    </div>`;
+}
+
 function renderEducation() {
   document.querySelector("[data-education]").innerHTML = content[locale].education.items.map((item, index) => `
     <article class="education-card reveal" data-delay="${index}">
-      <div class="education-logo"><img src="${item.logo}" alt="${escapeHtml(item.logoAlt)}" loading="lazy" decoding="async" /></div>
+      <div class="education-top"><div class="education-logo"><img src="${item.logo}" alt="${escapeHtml(item.logoAlt)}" loading="lazy" decoding="async" /></div>${educationMap(item)}</div>
       <div class="education-copy"><div class="education-meta"><span>0${index + 1}</span><span>${escapeHtml(item.place)}</span></div><h3>${escapeHtml(item.school)}</h3><p class="degree">${escapeHtml(item.degree)}</p><p class="education-date">${escapeHtml(item.date)}</p></div>
     </article>`).join("");
 }
@@ -85,10 +115,7 @@ function renderContact() {
   const links = [
     { label: contact.email, value: "gaoyuanouyang@gmail.com", href: "mailto:gaoyuanouyang@gmail.com" },
     { label: contact.linkedIn, value: "linkedin.com/in/gavin-ou", href: "https://www.linkedin.com/in/gavin-ou", external: true },
-    { label: contact.whatsApp, value: "+852 5986 7739", href: "https://wa.me/85259867739", external: true },
-    { label: contact.resumeEn, value: contact.download, href: "./assets/gavin-ouyang-resume-en.pdf", download: "Gavin-Ouyang-Resume-EN.pdf" },
-    { label: contact.resumeHant, value: contact.download, href: "./assets/gavin-ouyang-resume-zh-hant.pdf", download: "Gavin-Ouyang-Resume-ZH-Hant.pdf" },
-    { label: contact.resumeHans, value: contact.download, href: "./assets/gavin-ouyang-resume-zh-cn.pdf", download: "Gavin-Ouyang-Resume-ZH-CN.pdf" }
+    { label: contact.whatsApp, value: "+852 5986 7739", href: "https://wa.me/85259867739", external: true }
   ];
   document.querySelector("[data-contact-links]").innerHTML = links.map((item) => `<a class="contact-row" href="${item.href}"${item.external ? ' target="_blank" rel="noreferrer"' : ""}${item.download ? ` download="${item.download}"` : ""}><span>${escapeHtml(item.label)}</span><em>${escapeHtml(item.value)}</em><i aria-hidden="true">${item.download ? "↓" : "↗"}</i></a>`).join("");
 }
@@ -158,12 +185,9 @@ document.querySelector("[data-dialog-close]").addEventListener("click", closeDia
 dialog.addEventListener("click", (event) => { if (event.target === dialog) closeDialog(); });
 dialog.addEventListener("close", () => document.body.classList.remove("dialog-open"));
 
-let lastScroll = 0;
 window.addEventListener("scroll", () => {
   const now = window.scrollY;
-  document.querySelector("[data-header]").classList.toggle("header-hidden", now > lastScroll && now > 160 && !document.body.classList.contains("menu-open"));
   document.querySelector("[data-header]").classList.toggle("header-scrolled", now > 24);
-  lastScroll = now;
 }, { passive: true });
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();

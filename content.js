@@ -52,6 +52,12 @@ export const content = {
           points: ["Evaluated traffic, competition, rent, sales capability, and forecasts for site and partner proposals", "Helped standardise mall classification and store-proposal workflows across 24 markets"]
         },
         {
+          date: "Nov 2023 — Apr 2024", company: "Decathlon", role: "Retail Management Intern", logo: "./assets/brand/decathlon-logo.svg", logoAlt: "Decathlon logo",
+          scope: "Frontline retail · Customer service",
+          text: "Worked in high-frequency frontline retail operations and customer service, responding to shopper needs through on-floor communication and practical problem solving.",
+          points: ["Served approximately 130 customers per day across sales-floor interactions", "Built firsthand understanding of customer needs, product communication, and store execution"]
+        },
+        {
           date: "Jul 2023 — Oct 2023", company: "Mango TV", role: "E-commerce Operations Intern", logo: "./assets/brand/mangotv-logo.png", logoAlt: "Mango TV logo",
           scope: "Consumer electronics",
           text: "Supported consumer-electronics e-commerce operations across product listings, pricing, campaigns, coupons, sales tracking, and marketing-asset coordination.",
@@ -102,8 +108,8 @@ export const content = {
     education: {
       index: "05 / Education", title: "Academic foundation",
       items: [
-        { school: "The Hong Kong Polytechnic University", degree: "Master of Corporate Governance", place: "Hong Kong", date: "2024 — 2025", logo: "./assets/brand/polyu-logo.png", logoAlt: "The Hong Kong Polytechnic University logo" },
-        { school: "Changsha University of Science & Technology", degree: "Bachelor of Business Administration in Marketing", place: "Changsha", date: "2020 — 2024", logo: "./assets/brand/csust-a.png", logoAlt: "Changsha University of Science & Technology emblem" }
+        { school: "The Hong Kong Polytechnic University", degree: "Master of Corporate Governance", place: "Hong Kong", date: "2024 — 2025", logo: "./assets/brand/polyu-logo.png", logoAlt: "The Hong Kong Polytechnic University logo", mapKey: "hong-kong", mapCity: "Hong Kong", mapArea: "Hung Hom · Approx. location", mapLabel: "Stylised map marking The Hong Kong Polytechnic University in Hung Hom, Hong Kong" },
+        { school: "Changsha University of Science & Technology", degree: "Bachelor of Business Administration in Marketing", place: "Changsha", date: "2020 — 2024", logo: "./assets/brand/csust-a.png", logoAlt: "Changsha University of Science & Technology emblem", mapKey: "changsha", mapCity: "Changsha", mapArea: "Yuntang Campus · Approx. location", mapLabel: "Stylised map marking Changsha University of Science and Technology's Yuntang Campus in Changsha" }
       ]
     },
     contact: {
@@ -111,7 +117,6 @@ export const content = {
       body: "I am interested in conversations around international business, overseas retail, project delivery, digital commerce, and practical AI adoption.",
       prompt: "For professional conversations, opportunities, or collaboration:",
       email: "Email", linkedIn: "LinkedIn", whatsApp: "WhatsApp",
-      resumeEn: "Résumé · English", resumeHant: "Résumé · 繁體中文", resumeHans: "Résumé · 简体中文", download: "Download PDF",
       back: "Back to top"
     },
     footer: "Designed and built around clarity, context, and execution."
@@ -155,6 +160,7 @@ export const content = {
       entries: [
         { date: "2026.01 — 至今", company: "小米", role: "產品營運經理 · Mi.com 海外業務", scope: "英國 · 荷蘭 · 比利時 · 奧地利 · 瑞典 · 匈牙利", logo: "./assets/brand/xiaomi-logo.png", logoAlt: "小米標誌", text: "負責六個歐洲 Mi.com 市場的產品營運，運用搜尋、流量、銷售及轉化數據識別需求，並協調電商、市場、設計、數據及技術團隊推進落地。", points: ["結合市場潛力規劃新品、優惠、頁面、推廣節奏與流量分配", "透過轉化事件、流量結構及關鍵字調整，改善荷蘭市場的轉化路徑"] },
         { date: "2025.08 — 2026.01", company: "小米", role: "海外新零售建店管理", scope: "印度尼西亞 · 馬來西亞 · 泰國 · 臺灣 · 香港 · 韓國", logo: "./assets/brand/xiaomi-logo.png", logoAlt: "小米標誌", text: "參與六個亞洲市場的授權零售網絡拓展，協調總部、國家團隊、授權商、商場及工程合作方，由商業評估推進至開店準備。", points: ["根據客流、競爭、租金、銷售能力與預測評估點位及合作方案", "參與 24 個市場的商場分級與報店流程標準化"] },
+        { date: "2023.11 — 2024.04", company: "迪卡儂", role: "零售管理實習生", scope: "前線零售 · 顧客服務", logo: "./assets/brand/decathlon-logo.svg", logoAlt: "迪卡儂標誌", text: "在高頻前線零售環境中參與門店執行與顧客服務，透過現場溝通與實際問題處理回應顧客需求。", points: ["在賣場互動中每日服務約 130 位顧客", "累積需求理解、產品溝通與門店執行的一線經驗"] },
         { date: "2023.07 — 2023.10", company: "芒果 TV", role: "電商營運實習生", scope: "消費電子品類", logo: "./assets/brand/mangotv-logo.png", logoAlt: "芒果 TV 標誌", text: "支援消費電子品類的商品上架、定價、促銷、優惠券、銷售追蹤及行銷素材協調。", points: ["跟進商品與活動表現，支援日常品類決策", "協調線上推廣及綜藝節目的品牌露出審核"] }
       ]
     },
@@ -171,12 +177,12 @@ export const content = {
     education: {
       index: "05 / 教育背景", title: "學術基礎",
       items: [
-        { school: "香港理工大學", degree: "公司治理碩士", place: "香港", date: "2024 — 2025", logo: "./assets/brand/polyu-logo.png", logoAlt: "香港理工大學校徽" },
-        { school: "長沙理工大學", degree: "工商管理學士（市場行銷）", place: "長沙", date: "2020 — 2024", logo: "./assets/brand/csust-a.png", logoAlt: "長沙理工大學校徽" }
+        { school: "香港理工大學", degree: "公司治理碩士", place: "香港", date: "2024 — 2025", logo: "./assets/brand/polyu-logo.png", logoAlt: "香港理工大學校徽", mapKey: "hong-kong", mapCity: "香港", mapArea: "紅磡 · 大致位置", mapLabel: "標示香港理工大學紅磡校址大致位置的城市透視圖" },
+        { school: "長沙理工大學", degree: "工商管理學士（市場行銷）", place: "長沙", date: "2020 — 2024", logo: "./assets/brand/csust-a.png", logoAlt: "長沙理工大學校徽", mapKey: "changsha", mapCity: "長沙", mapArea: "雲塘校區 · 大致位置", mapLabel: "標示長沙理工大學雲塘校區大致位置的城市透視圖" }
       ]
     },
     contact: {
-      index: "06 / 聯絡方式", title: "期待與你交流市場、業務與想法。", body: "我樂於探討國際業務、海外零售、專案交付、數位商業及 AI 實際應用。", prompt: "歡迎就職業機會、業務交流或合作與我聯絡：", email: "電子郵件", linkedIn: "LinkedIn", whatsApp: "WhatsApp", resumeEn: "履歷 · English", resumeHant: "履歷 · 繁體中文", resumeHans: "履歷 · 简体中文", download: "下載 PDF", back: "返回頂部"
+      index: "06 / 聯絡方式", title: "期待與你交流市場、業務與想法。", body: "我樂於探討國際業務、海外零售、專案交付、數位商業及 AI 實際應用。", prompt: "歡迎就職業機會、業務交流或合作與我聯絡：", email: "電子郵件", linkedIn: "LinkedIn", whatsApp: "WhatsApp", back: "返回頂部"
     },
     footer: "以清晰脈絡、務實判斷與有效執行為出發點。"
   },
@@ -219,6 +225,7 @@ export const content = {
       entries: [
         { date: "2026.01 — 至今", company: "小米", role: "产品运营经理 · Mi.com 海外业务", scope: "英国 · 荷兰 · 比利时 · 奥地利 · 瑞典 · 匈牙利", logo: "./assets/brand/xiaomi-logo.png", logoAlt: "小米标志", text: "负责六个欧洲 Mi.com 市场的产品运营，运用搜索、流量、销售及转化数据识别需求，并协调电商、市场、设计、数据及技术团队推进落地。", points: ["结合市场潜力规划新品、优惠、页面、推广节奏与流量分配", "通过转化事件、流量结构及关键词调整，改善荷兰市场的转化路径"] },
         { date: "2025.08 — 2026.01", company: "小米", role: "海外新零售建店管理", scope: "印度尼西亚 · 马来西亚 · 泰国 · 台湾 · 香港 · 韩国", logo: "./assets/brand/xiaomi-logo.png", logoAlt: "小米标志", text: "参与六个亚洲市场的授权零售网络拓展，协调总部、国家团队、授权商、商场及工程合作方，由商业评估推进至开店准备。", points: ["根据客流、竞争、租金、销售能力与预测评估点位及合作方案", "参与 24 个市场的商场分级与报店流程标准化"] },
+        { date: "2023.11 — 2024.04", company: "迪卡侬", role: "零售管理实习生", scope: "一线零售 · 顾客服务", logo: "./assets/brand/decathlon-logo.svg", logoAlt: "迪卡侬标志", text: "在高频一线零售环境中参与门店执行与顾客服务，通过现场沟通与实际问题处理回应顾客需求。", points: ["在卖场互动中每日服务约 130 位顾客", "积累需求理解、产品沟通与门店执行的一线经验"] },
         { date: "2023.07 — 2023.10", company: "芒果 TV", role: "电商运营实习生", scope: "消费电子品类", logo: "./assets/brand/mangotv-logo.png", logoAlt: "芒果 TV 标志", text: "支持消费电子品类的商品上架、定价、促销、优惠券、销售跟踪及营销素材协调。", points: ["跟进商品与活动表现，支持日常品类决策", "协调线上推广及综艺节目的品牌露出审核"] }
       ]
     },
@@ -235,12 +242,12 @@ export const content = {
     education: {
       index: "05 / 教育背景", title: "学术基础",
       items: [
-        { school: "香港理工大学", degree: "公司治理硕士", place: "香港", date: "2024 — 2025", logo: "./assets/brand/polyu-logo.png", logoAlt: "香港理工大学校徽" },
-        { school: "长沙理工大学", degree: "工商管理学士（市场营销）", place: "长沙", date: "2020 — 2024", logo: "./assets/brand/csust-a.png", logoAlt: "长沙理工大学校徽" }
+        { school: "香港理工大学", degree: "公司治理硕士", place: "香港", date: "2024 — 2025", logo: "./assets/brand/polyu-logo.png", logoAlt: "香港理工大学校徽", mapKey: "hong-kong", mapCity: "香港", mapArea: "红磡 · 大致位置", mapLabel: "标示香港理工大学红磡校址大致位置的城市透视图" },
+        { school: "长沙理工大学", degree: "工商管理学士（市场营销）", place: "长沙", date: "2020 — 2024", logo: "./assets/brand/csust-a.png", logoAlt: "长沙理工大学校徽", mapKey: "changsha", mapCity: "长沙", mapArea: "云塘校区 · 大致位置", mapLabel: "标示长沙理工大学云塘校区大致位置的城市透视图" }
       ]
     },
     contact: {
-      index: "06 / 联系方式", title: "期待与你交流市场、业务与想法。", body: "我乐于探讨国际业务、海外零售、项目交付、数字商业及 AI 实际应用。", prompt: "欢迎就职业机会、业务交流或合作与我联系：", email: "电子邮件", linkedIn: "LinkedIn", whatsApp: "WhatsApp", resumeEn: "简历 · English", resumeHant: "简历 · 繁體中文", resumeHans: "简历 · 简体中文", download: "下载 PDF", back: "返回顶部"
+      index: "06 / 联系方式", title: "期待与你交流市场、业务与想法。", body: "我乐于探讨国际业务、海外零售、项目交付、数字商业及 AI 实际应用。", prompt: "欢迎就职业机会、业务交流或合作与我联系：", email: "电子邮件", linkedIn: "LinkedIn", whatsApp: "WhatsApp", back: "返回顶部"
     },
     footer: "以清晰背景、务实判断与有效执行为出发点。"
   }

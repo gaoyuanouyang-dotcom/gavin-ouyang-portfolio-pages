@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 86" role="img" aria-labelledby="title desc">
+  <title id="title">Decathlon</title>
+  <desc id="desc">Decathlon wordmark on a blue field</desc>
+  <rect width="260" height="86" rx="12" fill="#3643ba"/>
+  <path d="M24 60c23-28 57-40 99-35 24 3 41 10 57 20-20-5-39-6-58-3-38 5-68 14-98 18Z" fill="#fff" opacity=".16"/>
+  <text x="130" y="53" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing=".5" text-anchor="middle">DECATHLON</text>
+</svg>
